@@ -1,0 +1,109 @@
+body {
+  margin: auto;
+  max-width: 1200px;
+  max-height: 800px;
+}
+.container {
+  background-image: url("images/sun.png");
+  background-size: cover;
+  border: 3px solid black;
+  border-radius: 30px;
+  font-family: "Corben", cursive;
+  margin: 50px auto 0;
+  padding: 15px 40px 0;
+  position: relative;
+}
+.col-6 {
+  margin-top: 35px;
+  margin-bottom: 20px;
+  position: relative;
+}
+input {
+  background: rgba(255, 255, 255, 0.5);
+  border: 3px solid black;
+  border-radius: 15px;
+  color: black;
+  font-size: 20px;
+}
+button {
+  background: transparent;
+  border: none;
+  padding: 0 auto;
+}
+h1 {
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.5);
+  border: 3px solid black;
+  border-radius: 30px;
+  font-size: 35px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 17px;
+  text-align: center;
+}
+.today {
+  list-style: none;
+  margin: 0 auto;
+  padding: 1px 0;
+}
+.date {
+  font-size: 25px;
+  line-height: 50px;
+}
+.city {
+  font-family: "Shrikhand", cursive;
+  font-size: 50px;
+}
+.currentWeather {
+  font-size: 50px;
+}
+.currentTemp {
+  font-family: "Shrikhand", cursive;
+  font-size: 50px;
+}
+.highLowToday {
+  color: rgb(77, 77, 77);
+  font-size: 30px;
+  line-height: 10px;
+}
+.sunriseSunset {
+  font-size: 25px;
+  line-height: 50px;
+}
+.tomorrow {
+  background: rgba(255, 255, 255, 0.5);
+  border: 3px solid black;
+  border-radius: 30px;
+  font-size: 25px;
+  line-height: 60px;
+  margin-bottom: 34px;
+  padding: 30px;
+  text-align: center;
+}
+
+.weatherTomorrow {
+  font-size: 50px;
+}
+.weekday {
+  background: rgba(255, 255, 255, 0.5);
+  border: 3px solid black;
+  border-radius: 30px;
+  font-size: 25px;
+  list-style: none;
+  margin-bottom: 34px;
+  padding: 10px;
+  text-align: center;
+}
+.futureWeather {
+  font-size: 50px;
+  line-height: 35px;
+}
+footer {
+  color: black;
+  font-size: 12px;
+  margin-right: 90px;
+  text-align: right;
+}
+p {
+  margin: 0 auto;
+}
