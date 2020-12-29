@@ -58,14 +58,12 @@ function locationTemp(response) {
   let degrees = document.querySelector(".currentTemp");
   degrees.innerHTML = `${temperature}°`;
 
-  let low = Math.round(response.data.main.temp_min);
-  let min = document.querySelector(".lowToday");
-  min.innerHTML = `${low}°`;
-
   let high = Math.round(response.data.main.temp_max);
   let max = document.querySelector(".highToday");
   max.innerHTML = `${high}°`;  
+
+  let low = Math.round(response.data.main.temp_min);
+  let min = document.querySelector(".lowToday");
+  min.innerHTML = `${low}°`;
 }
-
-
-
+searchCity("Miami");
