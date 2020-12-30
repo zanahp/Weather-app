@@ -32,16 +32,30 @@ function dateToday(date) {
 }
 let today = new Date();
 let li = document.querySelector(".date");
+  li.innerHTML = dateToday(today);
 
-li.innerHTML = dateToday(today);
-
+function conversion(dt) {
+  let day = new Date(dt * 1000);
+  let hour = day.getUTCHours();
+    hour = (hour % 12) || 12;
+    if (hour < 10) {
+      hour = `0${hour}`;
+    } else { hour = hour; 
+    }
+  let minutes = day.getUTCMinutes();
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    } else {minutes = minutes;
+    }
+  let time = `${hour};${minutes}`;  
+  return time;
+}
 function searchCity(city) {
   let units = "imperial";
   let apiKey = "07d32b05fee3c33694b8ea90b20b7681";
   let apiStarter = "https://api.openweathermap.org/data/2.5/weather?";
   let apiUrl = `${apiStarter}q=${city}&units=${units}&appid=${apiKey}`;
-  axios.get(`${apiUrl}`).then(locationTemp);
- 
+    axios.get(`${apiUrl}`).then(locationTemp);
 }
 function handleSubmit(event) {
   event.preventDefault();
@@ -65,6 +79,14 @@ function locationTemp(response) {
   let low = Math.round(response.data.main.temp_min);
   let min = document.querySelector(".lowToday");
   min.innerHTML = `${low}°`;
+
+  let sunrise = conversion(response.data.sys.sunrise + response.data.timezone);
+  let highSun = document.querySelector(".sunrise");
+  highSun.innerHTML = sunrise;
+
+  let sunset = conversion(response.data.sys.sunset + response.data.timezone);
+  let lowSun = document.querySelector(".sunset");
+  lowSun.innerHTML = sunset;
 }
 function fahrenheitTemp(event) {
   event.preventDefault();
