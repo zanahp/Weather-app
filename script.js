@@ -54,9 +54,9 @@ let selection = document.querySelector("#search-form");
 selection.addEventListener("submit", handleSubmit);
 
 function locationTemp(response) {
-  let temperature = Math.round(response.data.main.temp);
+  tempF = Math.round(response.data.main.temp);
   let degrees = document.querySelector(".currentTemp");
-  degrees.innerHTML = `${temperature}°`;
+  degrees.innerHTML = `${tempF}°`;
 
   let high = Math.round(response.data.main.temp_max);
   let max = document.querySelector(".highToday");
@@ -66,4 +66,23 @@ function locationTemp(response) {
   let min = document.querySelector(".lowToday");
   min.innerHTML = `${low}°`;
 }
+function fahrenheitTemp(event) {
+  event.preventDefault();
+  let degrees = document.querySelector(".currentTemp");
+  degrees.innerHTML = `${tempF}°`;
+}
+function celsiusTemp(event) {
+  event.preventDefault();
+  let degrees = document.querySelector(".currentTemp");
+  let tempC = (tempF - 32) * 5 / 9;
+  degrees.innerHTML = `${Math.round(tempC)}°`;
+}
+let tempF = null;
+
+let fahrenheitLink = document.querySelector(".fahrenheit");
+fahrenheitLink.addEventListener("click", fahrenheitTemp);
+
+let celsiusLink = document.querySelector(".celsius");
+celsiusLink.addEventListener("click", celsiusTemp);
+
 searchCity("Miami");
