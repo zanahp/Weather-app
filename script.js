@@ -72,19 +72,19 @@ function locationTempTime(response) {
   let degrees = document.querySelector(".currentTemp");
   degrees.innerHTML = `${tempF}°`;
 
-  let high = Math.round(response.data.main.temp_max);
+  high = Math.round(response.data.main.temp_max);
   let max = document.querySelector(".highToday");
   max.innerHTML = `${high}°`;  
 
-  let low = Math.round(response.data.main.temp_min);
+  low = Math.round(response.data.main.temp_min);
   let min = document.querySelector(".lowToday");
   min.innerHTML = `${low}°`;
 
-  let sunrise = conversion(response.data.sys.sunrise + response.data.timezone);
+  sunrise = conversion(response.data.sys.sunrise + response.data.timezone);
   let highSun = document.querySelector(".sunrise");
   highSun.innerHTML = `${sunrise}AM`;
 
-  let sunset = conversion(response.data.sys.sunset + response.data.timezone);
+  sunset = conversion(response.data.sys.sunset + response.data.timezone);
   let lowSun = document.querySelector(".sunset");
   lowSun.innerHTML = `${sunset}PM`;
 }
@@ -94,6 +94,14 @@ function fahrenheitTemp(event) {
   celsiusLink.classList.add("active");
   let degrees = document.querySelector(".currentTemp");
   degrees.innerHTML = `${tempF}°`;
+
+  let max = document.querySelector(".highToday");
+  let highF = high;
+  max.innerHTML = `${Math.round(high)}°`;
+
+  let min = document.querySelector(".lowToday");
+  let lowF = high;
+  min.innerHTML = `${Math.round(low)}°`;
 }
 function celsiusTemp(event) {
   event.preventDefault();
@@ -102,8 +110,18 @@ function celsiusTemp(event) {
   let degrees = document.querySelector(".currentTemp");
   let tempC = (tempF - 32) * 5 / 9;
   degrees.innerHTML = `${Math.round(tempC)}°`;
+
+  let max = document.querySelector(".highToday");
+  let highC = (high - 32) * 5 / 9;
+  max.innerHTML = `${Math.round(highC)}°`;
+
+  let min = document.querySelector(".lowToday");
+  let lowC = (low - 32) * 5 / 9;
+  min.innerHTML = `${Math.round(lowC)}°`;
 }
 let tempF = null;
+let highC = null;
+let lowC = null;
 
 let fahrenheitLink = document.querySelector(".fahrenheit");
 fahrenheitLink.addEventListener("click", fahrenheitTemp);
