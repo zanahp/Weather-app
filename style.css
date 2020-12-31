@@ -61,6 +61,14 @@ h1 {
   font-family: "Shrikhand", cursive;
   font-size: 50px;
 }
+.active {
+  color: black;
+}
+.active:hover {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
 .highLowToday {
   color: rgb(77, 77, 77);
   font-size: 30px;

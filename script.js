@@ -55,7 +55,7 @@ function searchCity(city) {
   let apiKey = "07d32b05fee3c33694b8ea90b20b7681";
   let apiStarter = "https://api.openweathermap.org/data/2.5/weather?";
   let apiUrl = `${apiStarter}q=${city}&units=${units}&appid=${apiKey}`;
-    axios.get(`${apiUrl}`).then(locationTemp);
+    axios.get(`${apiUrl}`).then(locationTempTime);
 }
 function handleSubmit(event) {
   event.preventDefault();
@@ -67,7 +67,7 @@ function handleSubmit(event) {
 let selection = document.querySelector("#search-form");
 selection.addEventListener("submit", handleSubmit);
 
-function locationTemp(response) {
+function locationTempTime(response) {
   tempF = Math.round(response.data.main.temp);
   let degrees = document.querySelector(".currentTemp");
   degrees.innerHTML = `${tempF}°`;
@@ -82,19 +82,23 @@ function locationTemp(response) {
 
   let sunrise = conversion(response.data.sys.sunrise + response.data.timezone);
   let highSun = document.querySelector(".sunrise");
-  highSun.innerHTML = sunrise;
+  highSun.innerHTML = `${sunrise}AM`;
 
   let sunset = conversion(response.data.sys.sunset + response.data.timezone);
   let lowSun = document.querySelector(".sunset");
-  lowSun.innerHTML = sunset;
+  lowSun.innerHTML = `${sunset}PM`;
 }
 function fahrenheitTemp(event) {
   event.preventDefault();
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
   let degrees = document.querySelector(".currentTemp");
   degrees.innerHTML = `${tempF}°`;
 }
 function celsiusTemp(event) {
   event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let degrees = document.querySelector(".currentTemp");
   let tempC = (tempF - 32) * 5 / 9;
   degrees.innerHTML = `${Math.round(tempC)}°`;
