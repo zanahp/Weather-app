@@ -53,10 +53,20 @@ function conversion(dt) {
 function searchCity(city) {
   let units = "imperial";
   let apiKey = "07d32b05fee3c33694b8ea90b20b7681";
-  let apiStarter = "https://api.openweathermap.org/data/2.5/weather?";
-  let apiUrl = `${apiStarter}q=${city}&units=${units}&appid=${apiKey}`;
-    axios.get(`${apiUrl}`).then(locationTempTime);
+  let apiWeather = "https://api.openweathermap.org/data/2.5/weather?";
+  let apiWeatherUrl = `${apiWeather}q=${city}&units=${units}&appid=${apiKey}`;
+    axios.get(`${apiWeatherUrl}`).then(locationTempTime);
 }
+function currentCity(response) {
+  let lat = response.data.coord.lat;
+  let lon = response.data.coord.lon;
+  units = "imperial";
+  apiKey = "32b05fee3c33694b8ea90b20b7681";
+  let apiForecast = "https://api.openweathermap.org/data/2.5/onecall?"
+  let apiUrlForecast = `${apiForecast}lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}&exclude=currently,minutely,hourly,alert`;
+    axios.get(`${apiUrlForecast}`).then(locationForecast);  
+}
+
 function handleSubmit(event) {
   event.preventDefault();
   let citySelection = document.querySelector(".selection");
@@ -96,11 +106,9 @@ function fahrenheitTemp(event) {
   degrees.innerHTML = `${tempF}°`;
 
   let max = document.querySelector(".highToday");
-  let highF = high;
   max.innerHTML = `${Math.round(high)}°`;
 
   let min = document.querySelector(".lowToday");
-  let lowF = high;
   min.innerHTML = `${Math.round(low)}°`;
 }
 function celsiusTemp(event) {
@@ -130,3 +138,34 @@ let celsiusLink = document.querySelector(".celsius");
 celsiusLink.addEventListener("click", celsiusTemp);
 
 searchCity("Miami");
+
+function locationForecast(response) {
+  let fullForecast = document.querySelector(".forecast");
+  fullForecast.innerHTML = null;
+ 
+
+  for (let index = 2; index <4; index++) {
+    forecast = response.data.daily[index];
+    fullForecast.innerHTML += 
+    `<div class="row" class="forecast">
+					<div class="col">
+						<ul class="weekday">
+							<li class="day">${dateToday(weekday)}</li>
+							<li class="futureWeather">🌞</li>
+              <li class="highLowTemp">
+                ${Math.round(forecast.temp_max)}° | 
+                ${Math.round(forecast.temp_min)}°</li>
+						</ul>
+					</div>
+					<div class="col">
+						<ul class="weekday">
+							<li class="day">${dateToday(weekday)}</li>
+							<li class="futureWeather">🌞</li>
+              <li class="highLowTemp">
+              ${Math.round(forecast.temp_max)}° | 
+              ${Math.round(forecast.temp_min)}°</li>
+						</ul>
+					</div>
+				</div>`
+}
+}
