@@ -47,7 +47,7 @@ function conversion(dt) {
       minutes = `0${minutes}`;
     } else {minutes = minutes;
     }
-  let time = `${hour};${minutes}`;  
+  let time = `${hour}:${minutes}`;  
   return time;
 }
 function searchCity(city) {
@@ -180,6 +180,5 @@ function locationForecast(response) {
 					</div>
 				</div>`  
   }
-  
 }
 searchCity("Miami");
