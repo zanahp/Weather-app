@@ -104,8 +104,8 @@ function locationTempTime(response) {
 }
 function fahrenheitTemp(event) {
   event.preventDefault();
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove(".active");
+  celsiusLink.classList.add(".active");
   let degrees = document.querySelector(".currentTemp");
   degrees.innerHTML = `${tempF}°`;
 
@@ -117,8 +117,8 @@ function fahrenheitTemp(event) {
 }
 function celsiusTemp(event) {
   event.preventDefault();
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove(".active");
+  fahrenheitLink.classList.add(".active");
   let degrees = document.querySelector(".currentTemp");
   let tempC = (tempF - 32) * 5 / 9;
   degrees.innerHTML = `${Math.round(tempC)}°`;
@@ -160,9 +160,14 @@ function locationForecast(response) {
         alt="${tomorrow.weather[0].description}" class="futureWeather" />
 			</div>
 		</span>
-	<div class="col-sm">
-		${Math.round(tomorrow.temp.max)}° | 
-    ${Math.round(tomorrow.temp.min)}°
+  <div class="col-sm">
+    <span class="highTomorrow">
+			${Math.round(tomorrow.temp.max)}°
+		</span>
+		|
+		<span class="lowTomorrow">
+			 ${Math.round(tomorrow.temp.min)}°
+		</span>
 	</div>`;
   }
 
@@ -180,11 +185,16 @@ function locationForecast(response) {
 					<li>
 						<img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" 
             alt="${forecast.weather[0].description}" class="futureWeather" />
-					</li>
-					<li class="highLowTemp">
-            ${Math.round(forecast.temp.max)}° | 
-            ${Math.round(forecast.temp.min)}°
           </li>
+          <li>
+						<span class="highForecast">
+							${Math.round(forecast.temp.max)}°
+						</span>
+						|
+						<span class="lowForecast">
+							${Math.round(forecast.temp.min)}°
+						</span>
+					</li>
 				</ul>
 			</div>`;
   }
