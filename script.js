@@ -141,12 +141,36 @@ fahrenheitLink.addEventListener("click", fahrenheitTemp);
 let celsiusLink = document.querySelector(".celsius");
 celsiusLink.addEventListener("click", celsiusTemp);
 
+
 function locationForecast(response) {
+    let nextForecast = document.querySelector(".tomorrow");
+  nextForecast.innerHTML = null;
+  let tomorrow = null;
+
+  for (let index = 1; index < 2; index++) {
+    tomorrow = response.data.daily[index];
+    date = new Date(tomorrow.dt * 1000);
+    nextForecast.innerHTML +=
+    `<div class="col-sm">
+			${dateToday(date)}
+		</div>
+		<span>
+			<div class="col-sm">
+				<img src="http://openweathermap.org/img/wn/${tomorrow.weather[0].icon}@2x.png" 
+        alt="${tomorrow.weather[0].description}" class="futureWeather" />
+			</div>
+		</span>
+	<div class="col-sm">
+		${Math.round(tomorrow.temp.max)}° | 
+    ${Math.round(tomorrow.temp.min)}°
+	</div>`;
+  }
+
   let fullForecast = document.querySelector(".forecast");
   fullForecast.innerHTML = null;
   let forecast = null;
-  
-   for (let index = 2; index < 6; index++) {
+
+  for (let index = 2; index < 6; index++) {
     forecast = response.data.daily[index];
     date = new Date(forecast.dt * 1000);
     fullForecast.innerHTML += 
