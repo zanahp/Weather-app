@@ -19,118 +19,125 @@
   <title> Weather app</title>
 </head>
 <body>
-	
 	<div class="container">
    	<div class="row">
       <div class="col-6">  
 				<form id="search-form">
-					<input class="col-10" type="text" class="selection" 
-					placeholder="New York, Paris, etc."/>
-					<button class="col-1" class="search">
-					<i class="fas fa-globe-americas"></i>
+					<input class="col-10" 
+						type="text" 
+						class="selection" 
+						placeholder="New York, Paris, etc."/>
+					<button class="col-1" 
+						class="search">
+						<i class="fas fa-globe-americas"></i>
 					</button>
 				</form>
-					<h1 >
-						<ul class="today">
-							<li class="date">Saturday, November 14</li>
-						<br />
-							<li class="city">Miami</li>
-							<li>
-								<img src="" alt="weather icon" class="weatherToday"/>
-							</li>
-							<li class="tempAllToday">
-								<span class="currentTemp">
-									85°
-								</span>	
-								<span  class="active">
-									<a href="#" class="fahrenheit">
+				
+				<h1 >
+					<ul class="today">
+						<li class="date">Saturday, November 14</li>
+					<br />
+						<li class="city">Miami</li>
+						<li>
+							<img src="" alt="weather icon" class="weatherToday"/>
+						</li>
+						<li class="tempAllToday">
+							<span class="currentTemp">
+								85°
+							</span>	
+							<span  class="active">
+								<a href="#" class="fahrenheit">
 									F
-									</a>
-								</span> 
+								</a>
+							</span> 
 								|
-								<span >
-									<a href="#" class="celsius">
-										C
-									</a>
-								</span>
-							</li>
-							<li class="highLowToday">
-								<span class="highToday">
-									85°
-								</span>
+							<span>
+								<a href="#" class="celsius">
+									C
+								</a>
+							</span>
+						</li>
+						<li class="highLowToday">
+							<span class="highToday">
+								85°
+							</span>
 								|
-								<span class="lowToday">
-									75°
-								</span>
-							</li>
-						<br />
-							<li class="sunriseSunset">
-								<span class="sunrise">
-									6:40AM
-								</span>
-									<img src="images/sunrise.svg" alt="sunrise"/> 
-								|
-									<img src="images/sunset.svg" alt="sunset" />
-								<span class="sunset">
-									5:30PM
-								</span>
-							</li>
-						</ul>
-					</h1>
-      	</div>
+							<span class="lowToday">
+								75°
+							</span>
+						</li>
+					<br />
+						<li class="sunriseSunset">
+							<span class="sunrise">
+								6:40AM
+							</span>
+								<img src="images/sunrise.svg" alt="sunrise"/> 
+							|
+								<img src="images/sunset.svg" alt="sunset" />
+							<span class="sunset">
+								5:30PM
+							</span>
+						</li>
+					</ul>
+				</h1>
+      </div>
 
-      	<div class="col-6">
+      <div class="col-6">
 				<div class="tomorrow">
 					<div class="row">
-						<div class="col-sm" class="dateTomorrow">Sunday</div>
-						<span class="weatherTomorrow">
-							<div class="col-sm">
-								<img src="" alt="weather icon" class="iconTomorow" />
-							</div>
-						</span>
+						<div class="col-sm" class="dateTomorrow">
+							Sunday
+						</div>
+							<span class="weatherTomorrow">
+								<div class="col-sm">
+									<img src="" alt="weather icon" class="iconTomorow" />
+								</div>
+							</span>
 						<div class="col-sm" class="highLowTomorrow">75° | 85°</div>
 					</div>
          	</div>
         
-				<div class="row" class="forecast">
-					<div class="col">
-						<ul class="weekday">
-							<li class="day">Monday</li>
-							<li class=>
-								<img src="" alt="weather icon" class="futureWeather"/>
-							</li>
-							<li class="highLowTemp">75° | 85°</li>
-						</ul>
+					<div class="row forecast">
+						<div class="col">
+							<ul class="weekday">
+								<li class="day">Monday</li>
+								<li>
+									<img src="" alt="weather icon" class="futureWeather" />
+								</li>
+								<li class="highLowTemp">75° | 85°</li>
+							</ul>
+						</div>
+
+						<div class="col">
+							<ul class="weekday">
+								<li class="day">Tuesday</li>
+								<li>
+									<img src="" alt="weather icon" class="futureWeather" />
+								</li>
+								<li class="highLowTemp">75° | 85°</li>
+							</ul>
+						</div>
+
+						<div class="col">
+							<ul class="weekday">
+								<li class="day">Wednesday</li>
+								<li>
+									<img src="" alt="weather icon" class="futureWeather" />
+								</li>
+								<li class="highLowTemp">75° | 85°</li>
+							</ul>
+						</div>
+
+						<div class="col">
+							<ul class="weekday">
+								<li class="day">Thursday</li>
+								<li>
+									<img src="" alt="weather icon" class="futureWeather" />
+								</li>
+								<li class="highLowTemp">75° | 85°</li>
+							</ul>
 					</div>
-					<div class="col">
-						<ul class="weekday">
-							<li class="day">Tuesday</li>
-							<li class=>
-								<img src="" alt="weather icon" class="futureWeather" />
-							</li>
-							<li class="highLowTemp">75° | 85°</li>
-						</ul>
-					</div>
-				</div>  
-				<div class="row" class="forecast">
-					<div class="col">
-						<ul class="weekday">
-							<li class="day">Wednesday</li>
-							<li class=>
-								<img src="" alt="weather icon" class="futureWeather" />
-							</li>
-							<li class="highLowTemp">75° | 85°</li>
-						</ul>
-					</div>
-					<div class="col">
-						<ul class="weekday">
-							<li class="day">Thursday</li>
-							<li class=>
-								<img src="" alt="weather icon" class="futureWeather" />
-							</li>
-							<li class="highLowTemp">75° | 85°</li>
-						</ul>
-					</div>
+					
 				</div> 
       </div>  
 		</div>

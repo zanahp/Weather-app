@@ -1,4 +1,4 @@
-function dateToday(date) {
+  function dateToday(date) {
   let weekdays = [
   "Sunday",
   "Monday",
@@ -33,7 +33,6 @@ function dateToday(date) {
 let today = new Date();
 let li = document.querySelector(".date");
   li.innerHTML = dateToday(today);
-
 function conversion(dt) {
   let day = new Date(dt * 1000);
   let hour = day.getUTCHours();
@@ -147,38 +146,23 @@ function locationForecast(response) {
   fullForecast.innerHTML = null;
   let forecast = null;
   
-   for (let index = 2; index < 4; index++) {
+   for (let index = 2; index < 6; index++) {
     forecast = response.data.daily[index];
-    date = forecast.dt;
+    date = new Date(forecast.dt * 1000);
     fullForecast.innerHTML += 
-    `<div class="row" class="forecast">
-					<div class="col">
-						<ul class="weekday">
-							<li class="day">${dateToday(date)}</li>
-							<li class=>
-								<img src="http://openweathermap.org/img/wn/${forecast.weather[2].icon}@2x.png" 
-                alt="${forecast.weather[2].description}" class="futureWeather" />
-							</li>
-							<li class="highLowTemp">
-                ${Math.round(forecast.temp.max)}° | 
-                ${Math.round(forecast.temp.min)}°
-              </li>
-						</ul>
-					</div>
-					<div class="col">
-						<ul class="weekday">
-							<li class="day">Tuesday</li>
-							<li class=>
-                <img src="http://openweathermap.org/img/wn/${response.data.daily.weather[2].icon}@2x.png" 
-                alt="weather icon" class="futureWeather" />
-							</li>
-							<li class="highLowTemp">
-                ${Math.round(forecast.temp_max)}° | 
-                ${Math.round(forecast.temp_min)}°
-              </li>
-						</ul>
-					</div>
-				</div>`  
+      `<div class="col">
+				<ul class="weekday">
+					<li class="day">${dateToday(date)}</li>
+					<li>
+						<img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" 
+            alt="${forecast.weather[0].description}" class="futureWeather" />
+					</li>
+					<li class="highLowTemp">
+            ${Math.round(forecast.temp.max)}° | 
+            ${Math.round(forecast.temp.min)}°
+          </li>
+				</ul>
+			</div>`;
   }
 }
 searchCity("Miami");
