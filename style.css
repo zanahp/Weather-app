@@ -14,7 +14,7 @@ body {
   position: relative;
 }
 .col-6 {
-  margin-top: 35px;
+  margin-top: 30px;
   position: relative;
 }
 input {
@@ -84,9 +84,8 @@ h1 {
   padding: 10px;
   text-align: center;
 }
-.iconTomorrow {
-  max-width: 75%;
-  height: auto;
+.col-sm {
+  padding: 0;
 }
 .weekday {
   background: rgba(152, 185, 214, 0.5);
@@ -97,7 +96,7 @@ h1 {
   padding: 10px;
   text-align: center;
 }
-.futureWeather {
+.iconForecast {
   max-width: 50%;
   height: auto;
 }
