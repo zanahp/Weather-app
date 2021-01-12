@@ -119,7 +119,7 @@ function locationForecast(response) {
 		<span>
 			<div class="col-sm">
 				<img src="http://openweathermap.org/img/wn/${tomorrow.weather[0].icon}@2x.png" 
-        alt="${tomorrow.weather[0].description}" class="futureWeather" />
+        alt="${tomorrow.weather[0].description}" class="iconTomorrow" />
 			</div>
 		</span>
   <div class="col-sm">
@@ -148,7 +148,7 @@ function locationForecast(response) {
 					<li class="day">${dateToday(date)}</li>
 					<li>
 						<img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" 
-            alt="${forecast.weather[0].description}" class="futureWeather" />
+            alt="${forecast.weather[0].description}" class="iconForecast" />
           </li>
           <li>
 						<span class="highForecast">

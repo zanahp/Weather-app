@@ -80,12 +80,12 @@ h1 {
   border: 3px solid black;
   border-radius: 30px;
   font-size: 20px;
-  line-height: 35px;
   padding: 10px;
   text-align: center;
 }
 .col-sm {
-  padding: 0;
+  height: 100px;
+  padding: 20px 0 20px;
 }
 .weekday {
   background: rgba(152, 185, 214, 0.5);
