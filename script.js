@@ -177,28 +177,6 @@ function fahrenheitTemp(event) {
   let min = document.querySelector(".lowToday");
   min.innerHTML = `${Math.round(low)}°`;
 }
-function fahrenheitForecast(event) {
-  event.preventDefault;
-  fahrenheitLinkF.classList.remove(".active");
-  celsiusLinkF.classList.add(".active");
-
-  for (let index = 1; index < 2; index++) {
-  let tomorrowMax = document.querySelector(".highTomorrow");
-  tomorrowMax.innerHTML += `${Math.round(tomorrowHF)}°`;
-  }
-  for (let index = 1; index < 2; index++) {
-  let tomorrowMin = document.querySelector(".lowTomorrow");
-  tomorrowMin.innerHTML += `${Math.round(tomorrowLF)}°`;
-  }
-  for (let index = 2; index < 6; index++) {
-  let forecastMax = document.querySelector(".highForecast");
-  forecastMax.innerHTML += `${Math.round(forecastHF)}°`;
-  }
-  for (let index = 2; index < 6; index++) {
-  let forecastMin = document.querySelector(".lowForecast");
-  forecastMin.innerHTML += `${Math.round(forecastLF)}°`;
-  }
-}
 function celsiusTemp(event) {
   event.preventDefault();
   celsiusLink.classList.remove(".active");
@@ -216,42 +194,14 @@ function celsiusTemp(event) {
   let lowC = (low - 32) * 5 / 9;
   min.innerHTML = `${Math.round(lowC)}°`;  
 }
-function celsiusForecast(event) {
-  event.preventDefault();
-  celsiusLinkF.classList.remove(".active");
-  fahrenheitLinkF.classList.add(".active");
-  
-  let tomorrowHigh = (tomorrowHF - 32) * 5 / 9;
-  let tomorrowLow = (tomorrowLF - 32) * 5 / 9;
-  
-  for (let index = 1; index < 2; index++) {
-  let tomorrowMax = document.querySelector(".highTomorrow");
-  tomorrowMax.innerHTML = `${Math.round(tomorrowHigh)}°`;
-  }
-  for (let index = 1; index < 2; index++) {
-  let tomorrowMin = document.querySelector(".lowTomorrow");
-  tomorrowMin.innerHTML = `${Math.round(tomorrowLow)}°`;
-  }
-  let forecastHigh = (forecastHF - 32) * 5 / 9;
-  let forecastLow = (forecastLF - 32) * 5 / 9;
-
-  for (let index = 2; index < 6; index++) {
-  let forecastMax = document.querySelector(".highForecast");
-  forecastMax.innerHTML += `${Math.round(forecastHigh)}°`;
-  }
-  for (let index = 2; index < 6; index++) {
-  let forecastMin = document.querySelector(".lowForecast");
-  forecastMin.innerHTML += `${Math.round(forecastLow)}°`;
-  }
-}
 let tempF = null;
 let highC = null;
 let lowC = null;
 
 let fahrenheitLink = document.querySelector(".fahrenheit");
-fahrenheitLink.addEventListener("click", fahrenheitTemp, fahrenheitForecast);
+fahrenheitLink.addEventListener("click", fahrenheitTemp);
 
 let celsiusLink = document.querySelector(".celsius");
-celsiusLink.addEventListener("click", celsiusTemp, celsiusForecast);
+celsiusLink.addEventListener("click", celsiusTemp);
 
 searchCity("Miami");
