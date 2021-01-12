@@ -1,4 +1,4 @@
-  function dateToday(date) {
+function dateToday(date) {
   let weekdays = [
   "Sunday",
   "Monday",
@@ -102,53 +102,15 @@ function locationTempTime(response) {
 
   currentCity(response);
 }
-function fahrenheitTemp(event) {
-  event.preventDefault();
-  fahrenheitLink.classList.remove(".active");
-  celsiusLink.classList.add(".active");
-  let degrees = document.querySelector(".currentTemp");
-  degrees.innerHTML = `${tempF}°`;
-
-  let max = document.querySelector(".highToday");
-  max.innerHTML = `${Math.round(high)}°`;
-
-  let min = document.querySelector(".lowToday");
-  min.innerHTML = `${Math.round(low)}°`;
-}
-function celsiusTemp(event) {
-  event.preventDefault();
-  celsiusLink.classList.remove(".active");
-  fahrenheitLink.classList.add(".active");
-  let degrees = document.querySelector(".currentTemp");
-  let tempC = (tempF - 32) * 5 / 9;
-  degrees.innerHTML = `${Math.round(tempC)}°`;
-
-  let max = document.querySelector(".highToday");
-  let highC = (high - 32) * 5 / 9;
-  max.innerHTML = `${Math.round(highC)}°`;
-
-  let min = document.querySelector(".lowToday");
-  let lowC = (low - 32) * 5 / 9;
-  min.innerHTML = `${Math.round(lowC)}°`;
-}
-let tempF = null;
-let highC = null;
-let lowC = null;
-
-let fahrenheitLink = document.querySelector(".fahrenheit");
-fahrenheitLink.addEventListener("click", fahrenheitTemp);
-
-let celsiusLink = document.querySelector(".celsius");
-celsiusLink.addEventListener("click", celsiusTemp);
-
-
 function locationForecast(response) {
-    let nextForecast = document.querySelector(".tomorrow");
+  let nextForecast = document.querySelector(".tomorrow");
   nextForecast.innerHTML = null;
   let tomorrow = null;
 
   for (let index = 1; index < 2; index++) {
     tomorrow = response.data.daily[index];
+    let tomorrowHF = tomorrow.temp.max;
+    let tomorrowLF = tomorrow.temp.min;
     date = new Date(tomorrow.dt * 1000);
     nextForecast.innerHTML +=
     `<div class="col-sm">
@@ -162,11 +124,11 @@ function locationForecast(response) {
 		</span>
   <div class="col-sm">
     <span class="highTomorrow">
-			${Math.round(tomorrow.temp.max)}°
+			${Math.round(tomorrowHF)}°
 		</span>
 		|
 		<span class="lowTomorrow">
-			 ${Math.round(tomorrow.temp.min)}°
+			 ${Math.round(tomorrowLF)}°
 		</span>
 	</div>`;
   }
@@ -177,9 +139,11 @@ function locationForecast(response) {
 
   for (let index = 2; index < 6; index++) {
     forecast = response.data.daily[index];
+    let forecastHF = forecast.temp.max;
+    let forecastLF = forecast.temp.min;
     date = new Date(forecast.dt * 1000);
     fullForecast.innerHTML += 
-      `<div class="col">
+      `<div class="col-6">
 				<ul class="weekday">
 					<li class="day">${dateToday(date)}</li>
 					<li>
@@ -188,15 +152,106 @@ function locationForecast(response) {
           </li>
           <li>
 						<span class="highForecast">
-							${Math.round(forecast.temp.max)}°
+							${Math.round(forecastHF)}°
 						</span>
 						|
 						<span class="lowForecast">
-							${Math.round(forecast.temp.min)}°
+							${Math.round(forecastLF)}°
 						</span>
 					</li>
 				</ul>
 			</div>`;
   }
 }
+function fahrenheitTemp(event) {
+  event.preventDefault();
+  fahrenheitLink.classList.remove(".active");
+  celsiusLink.classList.add(".active");
+
+  let degrees = document.querySelector(".currentTemp");
+  degrees.innerHTML = `${tempF}°`;
+
+  let max = document.querySelector(".highToday");
+  max.innerHTML = `${Math.round(high)}°`;
+
+  let min = document.querySelector(".lowToday");
+  min.innerHTML = `${Math.round(low)}°`;
+}
+function fahrenheitForecast(event) {
+  event.preventDefault;
+  fahrenheitLinkF.classList.remove(".active");
+  celsiusLinkF.classList.add(".active");
+
+  for (let index = 1; index < 2; index++) {
+  let tomorrowMax = document.querySelector(".highTomorrow");
+  tomorrowMax.innerHTML += `${Math.round(tomorrowHF)}°`;
+  }
+  for (let index = 1; index < 2; index++) {
+  let tomorrowMin = document.querySelector(".lowTomorrow");
+  tomorrowMin.innerHTML += `${Math.round(tomorrowLF)}°`;
+  }
+  for (let index = 2; index < 6; index++) {
+  let forecastMax = document.querySelector(".highForecast");
+  forecastMax.innerHTML += `${Math.round(forecastHF)}°`;
+  }
+  for (let index = 2; index < 6; index++) {
+  let forecastMin = document.querySelector(".lowForecast");
+  forecastMin.innerHTML += `${Math.round(forecastLF)}°`;
+  }
+}
+function celsiusTemp(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove(".active");
+  fahrenheitLink.classList.add(".active");
+
+  let degrees = document.querySelector(".currentTemp");
+  let tempC = (tempF - 32) * 5 / 9;
+  degrees.innerHTML = `${Math.round(tempC)}°`;
+
+  let max = document.querySelector(".highToday");
+  let highC = (high - 32) * 5 / 9;
+  max.innerHTML = `${Math.round(highC)}°`;
+
+  let min = document.querySelector(".lowToday");
+  let lowC = (low - 32) * 5 / 9;
+  min.innerHTML = `${Math.round(lowC)}°`;  
+}
+function celsiusForecast(event) {
+  event.preventDefault();
+  celsiusLinkF.classList.remove(".active");
+  fahrenheitLinkF.classList.add(".active");
+  
+  let tomorrowHigh = (tomorrowHF - 32) * 5 / 9;
+  let tomorrowLow = (tomorrowLF - 32) * 5 / 9;
+  
+  for (let index = 1; index < 2; index++) {
+  let tomorrowMax = document.querySelector(".highTomorrow");
+  tomorrowMax.innerHTML = `${Math.round(tomorrowHigh)}°`;
+  }
+  for (let index = 1; index < 2; index++) {
+  let tomorrowMin = document.querySelector(".lowTomorrow");
+  tomorrowMin.innerHTML = `${Math.round(tomorrowLow)}°`;
+  }
+  let forecastHigh = (forecastHF - 32) * 5 / 9;
+  let forecastLow = (forecastLF - 32) * 5 / 9;
+
+  for (let index = 2; index < 6; index++) {
+  let forecastMax = document.querySelector(".highForecast");
+  forecastMax.innerHTML += `${Math.round(forecastHigh)}°`;
+  }
+  for (let index = 2; index < 6; index++) {
+  let forecastMin = document.querySelector(".lowForecast");
+  forecastMin.innerHTML += `${Math.round(forecastLow)}°`;
+  }
+}
+let tempF = null;
+let highC = null;
+let lowC = null;
+
+let fahrenheitLink = document.querySelector(".fahrenheit");
+fahrenheitLink.addEventListener("click", fahrenheitTemp, fahrenheitForecast);
+
+let celsiusLink = document.querySelector(".celsius");
+celsiusLink.addEventListener("click", celsiusTemp, celsiusForecast);
+
 searchCity("Miami");
