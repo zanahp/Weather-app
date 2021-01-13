@@ -1,12 +1,12 @@
 function dateToday(date) {
   let weekdays = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturtday"
+  "Sun",
+  "Mon",
+  "Tues",
+  "Wed",
+  "Thur",
+  "Fri",
+  "Sat"
   ];
   let weekday = weekdays[date.getDay()];
 

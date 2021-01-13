@@ -1,7 +1,6 @@
 body {
   margin: auto;
   max-width: 800px;
-  max-height: 400px;
 }
 .container {
   background-image: url("images/background.jpg");
@@ -12,6 +11,9 @@ body {
   margin: 50px auto 0;
   padding: 15px 40px 0;
   position: relative;
+}
+.column {
+  margin: 30px 0;
 }
 .col-6 {
   margin-top: 30px;
@@ -35,7 +37,7 @@ h1 {
   border: 3px solid black;
   border-radius: 30px;
   font-size: 35px;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 10px;
   padding: 17px;
   text-align: center;
@@ -47,16 +49,15 @@ h1 {
 }
 .date {
   font-size: 25px;
-  line-height: 50px;
+  line-height: 30px;
 }
 .city {
   font-size: 50px;
-}
-.currentWeather {
-  font-size: 50px;
+  line-height: 34px;
 }
 .currentTemp {
   font-size: 50px;
+  line-height: 34px;
 }
 .active {
   color: black;
@@ -69,17 +70,18 @@ h1 {
 .highLowToday {
   color: rgb(77, 77, 77);
   font-size: 30px;
-  line-height: 10px;
+  line-height: 15px;
 }
 .sunriseSunset {
   font-size: 25px;
-  line-height: 50px;
+  line-height: 30px;
 }
 .tomorrow {
   background: rgba(152, 185, 214, 0.5);
   border: 3px solid black;
   border-radius: 30px;
   font-size: 20px;
+  margin: 0 2px;
   padding: 10px;
   text-align: center;
 }
@@ -87,17 +89,21 @@ h1 {
   height: 100px;
   padding: 20px 0 20px;
 }
+.forecast {
+  margin-bottom: 15px;
+}
 .weekday {
   background: rgba(152, 185, 214, 0.5);
   border: 3px solid black;
   border-radius: 30px;
-  font-size: 20px;
+  font-size: 15px;
   list-style: none;
+  margin-bottom: 0;
   padding: 10px;
   text-align: center;
 }
 .iconForecast {
-  max-width: 50%;
+  max-width: 40%;
   height: auto;
 }
 footer {
