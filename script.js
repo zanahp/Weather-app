@@ -122,7 +122,7 @@ function locationForecast(response) {
         alt="${tomorrow.weather[0].description}" class="iconTomorrow" />
 			</div>
 		</span>
-  <div class="col-sm">
+  <div class="col-sm highLowTomorrow">
     <span class="highTomorrow">
 			${Math.round(tomorrowHF)}°
 		</span>
@@ -162,6 +162,7 @@ function locationForecast(response) {
 				</ul>
 			</div>`;
   }
+  searchCity(response);
 }
 function fahrenheitTemp(event) {
   event.preventDefault();
@@ -199,7 +200,7 @@ let highC = null;
 let lowC = null;
 
 let fahrenheitLink = document.querySelector(".fahrenheit");
-fahrenheitLink.addEventListener("click", fahrenheitTemp);
+fahrenheitLink.addEventListener("click", fahrenheitTemp, fahrenheitForecast);
 
 let celsiusLink = document.querySelector(".celsius");
 celsiusLink.addEventListener("click", celsiusTemp);

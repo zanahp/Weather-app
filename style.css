@@ -32,13 +32,11 @@ button {
   padding: 0 auto;
 }
 h1 {
-  margin: 0 auto;
   background: rgba(152, 185, 214, 0.5);
   border: 3px solid black;
   border-radius: 30px;
   font-size: 35px;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin: 30px 0 10px;
   padding: 17px;
   text-align: center;
 }
@@ -53,11 +51,11 @@ h1 {
 }
 .city {
   font-size: 50px;
-  line-height: 34px;
+  line-height: 38px;
 }
 .currentTemp {
   font-size: 50px;
-  line-height: 34px;
+  line-height: 38px;
 }
 .active {
   color: black;
@@ -88,6 +86,9 @@ h1 {
 .col-sm {
   height: 100px;
   padding: 20px 0 20px;
+}
+.highLowTomorrow {
+  margin-top: 25px;
 }
 .forecast {
   margin-bottom: 15px;
