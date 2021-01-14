@@ -1,4 +1,5 @@
 body {
+  color: black;
   margin: auto;
   max-width: 800px;
 }
@@ -23,7 +24,6 @@ input {
   background: rgba(152, 185, 214, 0.5);
   border: 3px solid black;
   border-radius: 15px;
-  color: black;
   font-size: 20px;
 }
 button {
@@ -61,8 +61,8 @@ h1 {
   color: black;
 }
 .active:hover {
-  color: black;
   cursor: default;
+  color: rgb(196, 82, 116);
   text-decoration: none;
 }
 .highLowToday {
@@ -87,6 +87,9 @@ h1 {
   height: 100px;
   padding: 20px 0 20px;
 }
+.dateTomorrow {
+  margin-top: 25px;
+}
 .highLowTomorrow {
   margin-top: 25px;
 }
@@ -108,10 +111,17 @@ h1 {
   height: auto;
 }
 footer {
-  color: black;
   font-size: 12px;
   margin-right: 20px;
   text-align: right;
+}
+.gitHub {
+  color: rgb(196, 82, 116);
+}
+.gitHub:hover {
+  cursor: default;
+  color: 152, 185, 214;
+  text-decoration: none;
 }
 p {
   margin: 0 auto;

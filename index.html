@@ -9,8 +9,6 @@
 	
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
-
-	<script src="https://kit.fontawesome.com/fa7dbfc9af.js" crossorigin="anonymous"></script>
 	
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	
@@ -21,14 +19,13 @@
 <body>
 	<div class="container">
    	<div class="row">
-      <div class="col-6 column">  
+      <div class="col-6 column">  				
 				<form id="search-form">
 					<input class="col-10 selection" 
 						type="text" 
 						placeholder="New York, Paris, etc."/>
-					<button class="col-1" 
-						class="search">
-						<i class="fas fa-globe-americas"></i>
+					<button class="col-1">
+						<img src="images/globe.svg" alt="search button" class="search"/>
 					</button>
 				</form>
 				
@@ -44,14 +41,14 @@
 							<span class="currentTemp">
 								85°
 							</span>	
-							<span  class="active">
-								<a href="#" class="fahrenheit">
+							<span>
+								<a href="#" class="fahrenheit active">
 									F
 								</a>
 							</span> 
 								|
 							<span>
-								<a href="#" class="celsius">
+								<a href="#" class="celsius active">
 									C
 								</a>
 							</span>
@@ -102,37 +99,36 @@
 					</div>
 				</div>
         
-					<div class="row forecast">
-						<div class="col">
-							<ul class="weekday">
-								<li class="day">Monday</li>
-								<li>
-									<img src="" alt="weather icon" class="iconForecast" />
-								</li>
-								<li class="highLowForecast">
-									<span class="highForecast">
-											85°
-									</span>
-									|
-									<span class="lowForecast">
-										75°
-									</span>
-								</li>
-							</ul>
-						</div>
-
+				<div class="row forecast">
+					<div class="col">
+						<ul class="weekday">
+							<li class="day">Monday</li>
+							<li>
+								<img src="" alt="weather icon" class="iconForecast" />
+							</li>
+							<li class="highLowForecast">
+								<span class="highForecast">
+									85°
+								</span>
+								|
+								<span class="lowForecast">
+									75°
+								</span>
+							</li>
+						</ul>
+					</div>
 				</div> 
       </div>  
 		</div>
 	</div> 
 	<footer>
-			<p>
-				<a href="https://github.com/zanahp/Weather-app" class=gitHub>
-					Open-source code 
-				</a>
-				by Zanah Paret
-			</p>
-		</footer> 
-	<script src="script.js"></script>
+		<p>
+			<a href="https://github.com/zanahp/Weather-app" class=gitHub>
+				Open-source code 
+			</a>
+			by Zanah Paret
+		</p>
+	</footer> 
+<script src="script.js"></script>
 </body>
 </html>

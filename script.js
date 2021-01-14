@@ -1,14 +1,5 @@
 function dateToday(date) {
-  let weekdays = [
-  "Sun",
-  "Mon",
-  "Tues",
-  "Wed",
-  "Thur",
-  "Fri",
-  "Sat"
-  ];
-  let weekday = weekdays[date.getDay()];
+
 
   let months = [
     "January",
@@ -28,7 +19,7 @@ function dateToday(date) {
 
   let day = date.getDate();
   
-  return `${weekday}, ${month} ${day}`;
+  return `${month} ${day}`;
 }
 let today = new Date();
 let li = document.querySelector(".date");
@@ -113,7 +104,7 @@ function locationForecast(response) {
     let tomorrowLF = tomorrow.temp.min;
     date = new Date(tomorrow.dt * 1000);
     nextForecast.innerHTML +=
-    `<div class="col-sm">
+    `<div class="col-sm dateTomorrow">
 			${dateToday(date)}
 		</div>
 		<span>
@@ -162,7 +153,6 @@ function locationForecast(response) {
 				</ul>
 			</div>`;
   }
-  searchCity(response);
 }
 function fahrenheitTemp(event) {
   event.preventDefault();
@@ -200,7 +190,7 @@ let highC = null;
 let lowC = null;
 
 let fahrenheitLink = document.querySelector(".fahrenheit");
-fahrenheitLink.addEventListener("click", fahrenheitTemp, fahrenheitForecast);
+fahrenheitLink.addEventListener("click", fahrenheitTemp);
 
 let celsiusLink = document.querySelector(".celsius");
 celsiusLink.addEventListener("click", celsiusTemp);
